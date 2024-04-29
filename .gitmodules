@@ -1,0 +1,15 @@
+[submodule "pydevp2p"]
+	path = pydevp2p
+	url = https://github.com/jmkemp20/pydevp2p
+[submodule "lunatic-python"]
+	path = lunatic-python
+	url = https://github.com/jmkemp20/lunatic-python.git
+[submodule "lua-devp2p-wireshark-dissector"]
+	path = lua-devp2p-wireshark-dissector
+	url = https://github.com/jmkemp20/lua-devp2p-wireshark-dissector
+[submodule "geth-docker"]
+	path = geth-docker
+	url = https://github.com/justinsanders64/geth-docker
+[submodule "go-ethereum-key-extraction"]
+	path = go-ethereum-key-extraction
+	url = https://github.com/ljweeks/go-ethereum-key-extraction
