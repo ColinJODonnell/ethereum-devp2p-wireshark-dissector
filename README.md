@@ -1,2 +1,4 @@
 # ethereum-devp2p-wireshark-dissector
 Ethereum DevP2P protocol wireshark dissector and geth simulation network
+
+This project aims to modify or update an existing Wireshark dissector for Ethereum's DevP2P protocol suite. Testing the dissector will require setting up Ethereum nodes in a testing environment to generate traffic to analyze. RLPx, one of DevP2P's subprotocols, requires a client's private key and a nonce to decrypt packets. Previous work by Kemp modified a client to send keys over the network, in the clear, to enable decryption; this project will develop a more secure means to store secret data for later analytic use. This work will aid analysts in understanding activity on their networks, researchers in investigating Ethereum's protocols, and potentially Ethereum contributors looking to better understand the technology or develop new features. 
