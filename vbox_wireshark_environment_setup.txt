@@ -1,0 +1,50 @@
+1.
+Ubuntu 22.04 on Virtualbox
+Add self to sudoers file
+$ sudo su
+$ sudo usermod -a -G sudoers vboxuser
+$ su vboxuser
+
+2.
+$ sudo apt install virtualbox-guest-additions-iso
+$ sudo mount /usr/share/virtualbox/VBoxGuestAdditions.iso /mnt
+$ cd /mnt
+$ sudo apt install -y dkms build-essential linux-headers-generic linux-headers-$(uname -r)
+$ sudo ./VBoxLinuxAdditions.run
+$ reboot
+Installs Vbox guest additions 6.1.50 (not newest but that's fine)
+
+3.
+$ sudo apt install lua5.2 liblua5.2-dev wireshark python3.10 python3.10-dev git cmake python3-pip
+$ cd ~/Desktop && mkdir repos && cd repos
+$ mkdir lunatic-python && mkdir lua-dissector && mkdir pydevp2p
+
+4.
+$ cd lunatic-python && git clone https://github.com/jmkemp20/lunatic-python.git
+$ cd lunatic-python
+$ cmake -B./build -H. -DPYTHON_INCLUDE_DIR=/usr/include/python3.10   -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.10.so
+$ sudo chmod +x build/bin/python.so
+$ sudo mkdir /usr/local/lib/lua/
+$ sudo mkdir /usr/local/lib/lua/5.2/
+$ sudo cp build/bin/python.so /usr/local/lib/lua/5.2/
+(having to make the dir seems wrong)
+
+5.
+$ cd ~/Desktop/repos/lua-dissector
+$ git clone https://github.com/jmkemp20/lua-devp2p-wireshark-dissector.git
+$ cd ~/Desktop/repos/pydevp2p
+$ git clone https://github.com/jmkemp20/pydevp2p.git
+$ cd pydevp2p
+$ sudo pip install -e .
+
+6.
+$ cd ~/.local/ && mkdir lib && cd lib && mkdir wireshark && cd wireshark && mkdir plugins && cd plugins
+$ sudo ln -s ~/Desktop/repos/lua-dissector/lua-devp2p-wireshark-dissector/rlpx.lua rlpx.lua
+$ sudo ln -s ~/Desktop/repos/lua-dissector/lua-devp2p-wireshark-dissector/discovery.lua discovery.lua
+(repeat for root's home dir if using privileged Wireshark)
+
+7.
+Should be able to run Wireshark on pcap and see Ethereum protocols
+
+
+
