@@ -1,0 +1,4 @@
+222,224d221
+< 	error_code := os.WriteFile("KEY_PLAIN.key", buf, 0666)
+< 	_ = error_code
+< 

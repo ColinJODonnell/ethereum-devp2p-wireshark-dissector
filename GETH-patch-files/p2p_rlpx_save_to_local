@@ -1,0 +1,40 @@
+34d33
+< 	"os"
+573,590d571
+< 
+< 	fmt.Print("**** handshake key captured ****\n")
+< 	fmt.Printf("Nonce: %d\n", msg.Nonce)
+< 	fmt.Printf("PubKey: %d\n", msg.InitiatorPubkey)
+< 	fmt.Printf("Private Key: %s\n", h.randomPrivKey.D)
+< 
+< 	f, error_code := os.OpenFile("handshake_key.key", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+< 
+< 	f.WriteString("Handshake Capture\n")
+< 	f.WriteString("private key\n")
+< 	f.WriteString(h.randomPrivKey.D.String())
+< 	f.WriteString("\n Nonce\n")
+< 	f.WriteString(string(msg.Nonce[:]))
+< 	f.WriteString("\n pub key \n")
+< 	f.WriteString(string(msg.InitiatorPubkey[:]))
+< 	f.WriteString("\n")
+< 	_ = error_code
+< 
+611,628d591
+< 
+< 	fmt.Print("****key updated ****\n")
+< 	fmt.Printf("Nonce: %s\n", string(msg.Nonce[:]))
+< 	fmt.Printf("PubKey: %s\n", string(msg.RandomPubkey[:]))
+< 	fmt.Printf("Private Key: %s\n", h.randomPrivKey.D)
+< 	f, error_code := os.OpenFile("AuthResp_key.key", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+< 	_ = error_code
+< 
+< 	f.WriteString("AuthRespSaved\n")
+< 	f.WriteString("Handshake Capture\n")
+< 	f.WriteString("private key\n")
+< 	f.WriteString(h.randomPrivKey.D.String())
+< 	f.WriteString("\n Nonce\n")
+< 	f.WriteString(string(msg.Nonce[:]))
+< 	f.WriteString("\n pub key \n")
+< 	f.WriteString(string(msg.RandomPubkey[:]))
+< 	f.WriteString("\n")
+< 

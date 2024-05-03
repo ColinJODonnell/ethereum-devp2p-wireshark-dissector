@@ -1,0 +1,19 @@
+394c394
+< 	RandomPrivKey   [32]byte
+---
+> 
+401,404c401,404
+< 	RandomPubkey  [pubLen]byte
+< 	Nonce         [shaLen]byte
+< 	Version       uint
+< 	RandomPrivKey [32]byte
+---
+> 	RandomPubkey [pubLen]byte
+> 	Nonce        [shaLen]byte
+> 	Version      uint
+> 
+571,572d570
+< 	copy(msg.RandomPrivKey[:], h.randomPrivKey.D.Bytes())
+< 	copy(msg.RandomPrivKey[:], h.randomPrivKey.D.Bytes())
+593d590
+< 	copy(msg.RandomPrivKey[:], h.randomPrivKey.D.Bytes())
